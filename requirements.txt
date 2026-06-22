@@ -1,0 +1,10 @@
+streamlit
+pydantic
+langchain-openai
+python-dotenv
+langchain-core
+langsmith[openai-agents]
+ddgs
+langgraph
+langgraph-checkpoint-sqlite
+langchain
