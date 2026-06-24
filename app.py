@@ -1,27 +1,13 @@
 from dotenv import load_dotenv
 import os
+import uuid
 import streamlit as st
-from langchain_openai import ChatOpenAI
-from langchain_core.tools import tool
-from langchain_core.messages import SystemMessage, HumanMessage,ToolMessage
+from langchain_core.messages import HumanMessage,AIMessage
 from ddgs import DDGS
-
 load_dotenv()
+from src.memory.profile_store import load_profile
 
-@tool
-def web_search(query: str) -> str:
-    """ Search the web for current Indian mutual fund info, debt funds, RBI rates, and market news. Use this when the user asks about funds, investments, or current financial data. """
-    results = []
-    for r in DDGS().text(query, region="in-en", max_results=5):
-        results.append(f"{r['title']}: {r['href']}")
-    return "\n".join(results)
-
-# map tools to their implementations
-tools_by_name = {
-    "web_search": web_search
-}
-
-
+from src.agent.graph import graph
 
 
 
@@ -32,43 +18,57 @@ if not os.getenv("OPENAI_API_KEY"):
     st.error("Please set the OPENAI_API_KEY environment variable.")
     st.stop()
 
+# thread id - which conversation we are in - can be used for session management, or to link to a specific graph session
+query_params = st.query_params
 
-llm = ChatOpenAI(model=os.getenv("OPENAI_MODEL", "gpt-4o-mini"), temperature=0.2)
-llm_with_tools = llm.bind_tools(list(tools_by_name.values()))
-prompt = st.text_input("Enter your financial question or request:")
+if "thread_id" in query_params:
+    st.session_state.thread_id = query_params["thread_id"][0]
+if "thread_id" not in st.session_state:
+    st.session_state.thread_id = str(uuid.uuid4())
+    st.query_params["thread_id"] = st.session_state.thread_id
 
+if "user_id" not in st.session_state:
+    st.session_state.user_id = "default"
 
-if prompt: 
-    messages = [
-    SystemMessage(content="You are a wealth advisor for Indian investors. "
-    "When users ask about funds, markets, or current rates, use the web_search tool. "
-    "Base your answer on tool results. "
-    "Suggest specific fund names or categories when the search results support it. "
-    "Always end with: this is educational, not SEBI-registered advice." \
-    " If the user asks for general financial advice, provide it based on your training data, but also suggest they ask about specific funds or market conditions for more tailored info."),
-    HumanMessage(content=prompt)
-]
-    
-    response = llm_with_tools.invoke(messages)
-    messages.append(response)
+config={"configurable":{"thread_id": st.session_state.thread_id, "user_id": st.session_state.user_id}}
 
-    if response.tool_calls:
-        for call in response.tool_calls:
-            tool_fn = tools_by_name[call["name"]]
-            tool_response = tool_fn.invoke(call["args"])
-            tool_response = tool_fn.invoke(call["args"])
-            print("QUERY:", call["args"])
-            print("TOOL RESULT:", repr(tool_response))
-            st.sidebar.write("Search query:", call["args"])
-            st.sidebar.write("Results:", tool_response)
-            messages.append(ToolMessage(content=tool_response, tool_name=call["name"], tool_call_id=call["id"]))
-            final_response = llm.invoke(messages)
-            st.write(final_response.content)
-           
-    else:
-        st.write(response.content)
-        
+st.sidebar.caption(f"Chat: {st.session_state.thread_id[:8]}...")
+st.sidebar.caption(f"User: {st.session_state.user_id}")
+profile = load_profile(st.session_state.user_id)
+if profile:
+    st.sidebar.subheader("Your profile")
+    st.sidebar.json(profile.model_dump(exclude_none=True))
+else:
+    st.sidebar.caption("No profile saved yet.")
+if st.sidebar.button("New Conversation"):
+    st.session_state.thread_id = str(uuid.uuid4())
+    st.query_params["thread_id"] = st.session_state.thread_id
+    # do NOT change user_id — long-term memory persists
+    st.rerun()
 
+#show history from checkpointer
+snapshot = graph.get_state(config)
+history = snapshot.values.get("messages", []) if snapshot else []
 
+for msg in history:
+    if isinstance(msg, HumanMessage):
+        st.chat_message("user").write(msg.content)
+    elif isinstance(msg, AIMessage):
+        st.chat_message("assistant").write(msg.content) 
 
+if prompt:=st.chat_input("Ask me anything about personal finance!"):
+    st.chat_message("user").write(prompt)
 
+    with st.chat_message("assistant"):
+        thinking = st.empty()
+        thinking.write("Thinking...")
+        def token_streamer():
+            first_chunk = True
+            for chunk, metadata in graph.stream({"messages": [HumanMessage(content=prompt)]}, config=config, stream_mode="messages"):
+                if metadata.get("langgraph_node")=="chatbot" and chunk.content:
+                    if first_chunk:
+                        thinking.empty()
+                        first_chunk = False
+                    yield chunk.content
+        st.write_stream(token_streamer)
+    #st.rerun()
