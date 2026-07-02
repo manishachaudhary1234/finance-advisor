@@ -1,32 +1,32 @@
 #!/usr/bin/env python3
-"""Test the ADK-native chatbot flow with Gemini."""
+"""Test the OpenAI-native chatbot flow."""
 
 from dotenv import load_dotenv
-from src.agent.graph import chat_with_adk
+from src.agents.graph import chat_with_openai
 
 load_dotenv()
 
-def test_chatbot_with_gemini():
-    """Test chatbot responds to financial query using Google ADK."""
+def test_chatbot_with_openai():
+    """Test chatbot responds to financial query using OpenAI."""
 
     user_query = "What should I invest in with 1 lakh INR?"
     
     print("=" * 60)
-    print("Testing Chatbot Node with Gemini API")
+    print("Testing Chatbot Node with OpenAI API")
     print("=" * 60)
     print(f"\nUser Query: {user_query}")
     print(f"User ID: test_user_123")
     
     try:
-        print("\nSending request via ADK Runner...")
-        response_text = chat_with_adk(
+        print("\nSending request via OpenAI chat completion...")
+        response_text = chat_with_openai(
             user_id="test_user_123",
             thread_id="test_thread_123",
             message=user_query,
         )
 
         if response_text:
-            print(f"\n✅ Success! Gemini responded:")
+            print(f"\n✅ Success! OpenAI responded:")
             print("-" * 60)
             print(response_text)
             print("-" * 60)
@@ -55,23 +55,21 @@ def test_chatbot_with_gemini():
         
         # Help with common issues
         if "429" in str(e) or "quota" in str(e).lower():
-            print("\n⚠️  Your Gemini API quota is exhausted.")
-            print("   Fix: Enable billing in Google Cloud Console for your project")
-            print("   See: https://console.cloud.google.com/billing")
-        elif "GOOGLE_API_KEY" in str(e) or "Unauthorized" in str(e):
+            print("\n⚠️  API quota may be exhausted.")
+        elif "OPENAI_API_KEY" in str(e) or "Unauthorized" in str(e):
             print("\n⚠️  API Key issue")
-            print("   Fix: Verify GOOGLE_API_KEY is set in .env file")
+            print("   Fix: Verify OPENAI_API_KEY is set in .env file")
         
         return False
 
 if __name__ == "__main__":
-    success = test_chatbot_with_gemini()
+    success = test_chatbot_with_openai()
     
     print("\n" + "=" * 60)
     if success:
-        print("✅ ADK chatbot migration PASSED")
+        print("✅ OpenAI chatbot migration PASSED")
         print("Next: Run test_extract_node.py to test the extract node")
     else:
-        print("❌ ADK chatbot migration FAILED")
+        print("❌ OpenAI chatbot migration FAILED")
         print("Fix the errors above and retry")
     print("=" * 60)

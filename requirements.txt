@@ -1,8 +1,8 @@
 streamlit
 pydantic
-google-genai>=2.8,<3
-google-adk>=2.3.0
+openai>=1.0.0
 python-dotenv
 pyyaml
 langsmith[openai-agents]
 ddgs
+pypdf

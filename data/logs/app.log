@@ -58,3 +58,152 @@
 2026-07-02 11:54:05,150 | INFO | finance-advisor | Received user prompt
 2026-07-02 11:54:50,240 | INFO | finance-advisor | App booted with config.yml via config.py
 2026-07-02 11:54:50,244 | INFO | finance-advisor | Received user prompt
+2026-07-02 12:00:44,776 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:00:48,914 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:00:59,524 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:40,578 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:46,345 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:46,554 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:49,223 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:49,415 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:50,226 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:50,408 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:52,375 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:01:52,567 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:09,708 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:19,164 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:25,373 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:25,561 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:26,724 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:26,922 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:27,240 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:27,433 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:31,243 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:31,430 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:42,792 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:42,986 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:44,994 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:02:44,997 | INFO | finance-advisor | Received user prompt
+2026-07-02 12:03:00,437 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:03:00,442 | INFO | finance-advisor | Received user prompt
+2026-07-02 12:03:12,308 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:03:17,506 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:03:17,708 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:25:33,129 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:25:40,895 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:25:44,506 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:25:44,692 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:25:55,734 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:25:55,742 | INFO | finance-advisor | Received user prompt
+2026-07-02 12:26:44,095 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:26:44,109 | INFO | finance-advisor | Received user prompt
+2026-07-02 12:38:03,852 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:38:08,184 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:38:11,702 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:38:11,900 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:38:25,026 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:39:25,305 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:39:42,472 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:40:54,031 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:40:58,827 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:41:32,052 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:42:12,362 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:43:52,856 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:44:11,521 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:44:17,234 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:44:21,461 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:46:31,109 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:46:45,647 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:47:06,165 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:48:17,673 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:48:42,406 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:48:50,950 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:50:33,897 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 12:50:33,911 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:52:34,288 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:52:34,816 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:52:51,054 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:52:51,069 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:53:03,615 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:53:03,635 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:53:21,263 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:53:21,288 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:53:29,193 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:53:29,222 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:53:44,057 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:53:44,232 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:53:50,027 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:53:50,043 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:53:58,415 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:53:58,604 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:54:08,430 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:54:08,452 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:54:28,554 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:54:28,774 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:54:45,305 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:54:45,343 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:55:01,114 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:55:01,158 | INFO | finance-advisor | Received user prompt
+2026-07-02 13:55:23,846 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:55:24,030 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:55:27,137 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 13:55:27,413 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:13:56,832 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:14:06,848 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:14:20,089 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:14:20,374 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:14:35,775 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:14:36,031 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:28:07,373 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:29:05,471 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:29:09,438 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:29:09,647 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:29:16,014 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:29:24,277 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:29:32,084 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:29:32,107 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:30:32,270 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:30:39,085 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:33:41,165 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:33:41,410 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:33:50,799 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:33:56,056 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:34:11,411 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:34:11,430 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:35:15,891 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:35:15,918 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:36:01,682 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:36:01,716 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:36:47,229 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:36:47,313 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:37:13,949 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:37:14,026 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:40:50,467 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:40:52,255 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:07,103 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:07,325 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:29,304 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:29,366 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:41:43,607 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:43,916 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:47,844 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:48,082 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:50,894 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:51,233 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:41:57,874 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:42:05,626 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:42:33,875 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:42:33,905 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:43:19,036 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:43:19,094 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:45:23,773 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:45:24,145 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:45:29,789 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:45:30,114 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:45:37,435 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:45:42,251 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:45:49,758 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:45:49,788 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:46:20,729 | INFO | finance-advisor | App booted with config.yml via config.py
+2026-07-02 14:46:20,786 | INFO | finance-advisor | Received user prompt
+2026-07-02 14:48:22,900 | INFO | finance-advisor | App booted with config.yml via config.py

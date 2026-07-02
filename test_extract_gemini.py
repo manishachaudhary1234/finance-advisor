@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Test profile extraction with Gemini using ADK-native app flow."""
+"""Test profile extraction with OpenAI-native app flow."""
 
 from dotenv import load_dotenv
-from src.agent.graph import extract_profile_from_messages
+from src.agents.graph import extract_profile_from_messages
 from src.memory.profile_store import load_profile
 
 load_dotenv()
 
-def test_extract_profile_with_gemini():
-    """Test extractor uses Gemini to extract profile updates."""
+def test_extract_profile_with_openai():
+    """Test extractor uses OpenAI to extract profile updates."""
 
     messages = [
         {"role": "user", "content": "My income just increased to 75000 INR per month"},
@@ -16,7 +16,7 @@ def test_extract_profile_with_gemini():
     ]
     
     print("=" * 60)
-    print("Testing Extract Node with Gemini API")
+    print("Testing Extract Node with OpenAI API")
     print("=" * 60)
     
     print(f"\nTest Scenario:")
@@ -24,7 +24,7 @@ def test_extract_profile_with_gemini():
     print(f"  Advisor: {messages[1]['content']}")
     
     try:
-        print("\nSending extraction request to Gemini API...")
+        print("\nSending extraction request to OpenAI API...")
         extract_profile_from_messages(
             messages=messages,
             user_id="test_extract_user",
@@ -63,20 +63,19 @@ def test_extract_profile_with_gemini():
         
         # Help with common issues
         if "429" in str(e) or "quota" in str(e).lower():
-            print("\n⚠️  Your Gemini API quota is exhausted.")
-            print("   Fix: Enable billing in Google Cloud Console for your project")
+            print("\n⚠️  API quota may be exhausted.")
         elif "response_schema" in str(e).lower():
-            print("\n⚠️  Issue with Gemini structured output")
+            print("\n⚠️  Issue with structured output")
             print("   Fix: Ensure ProfileUpdate schema is valid Pydantic model")
         
         return False
 
 if __name__ == "__main__":
-    success = test_extract_profile_with_gemini()
+    success = test_extract_profile_with_openai()
     
     print("\n" + "=" * 60)
     if success:
-        print("✅ ADK extraction migration PASSED")
+        print("✅ OpenAI extraction migration PASSED")
     else:
-        print("❌ ADK extraction migration FAILED")
+        print("❌ OpenAI extraction migration FAILED")
     print("=" * 60)

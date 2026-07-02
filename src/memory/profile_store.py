@@ -4,8 +4,16 @@ from pathlib import Path
 from datetime import datetime,timezone
 from typing import Optional
 import os
+from pydantic import ValidationError
+from pydantic_core import ValidationError as CoreValidationError
 from src.schemas.profile import FinancialProfile
 from src.schemas.updates import ProfileUpdate
+
+_LAST_PROFILE_LOAD_META: dict[str, str] = {
+    "mode": "none",
+    "error_type": "",
+    "error_message": "",
+}
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 DATA_DIR.mkdir(exist_ok=True)
@@ -35,15 +43,69 @@ def __get_connection():
     __init_db(conn)
     return conn
 
+
+def get_last_profile_load_meta() -> dict[str, str]:
+    return dict(_LAST_PROFILE_LOAD_META)
+
 def load_profile(uuid: str) ->Optional[FinancialProfile]:
     """Load profile by user id. Returns None if user has no saved profile yet."""
     conn = __get_connection()
     try:
         row = conn.execute("SELECT data FROM profiles WHERE uuid = ?", (uuid,)).fetchone()
-        if row:
-            return FinancialProfile.model_validate_json(row[0])
-        else:
+        if row is None:
+            _LAST_PROFILE_LOAD_META.update(
+                {
+                    "mode": "none",
+                    "error_type": "",
+                    "error_message": "",
+                }
+            )
             return None
+
+        raw = row[0]
+        # Parse stored JSON first, then try strict validation. If strict fails,
+        # fall back to tolerant construction so startup never crashes.
+        data = json.loads(raw) if isinstance(raw, str) else raw
+        if not isinstance(data, dict):
+            _LAST_PROFILE_LOAD_META.update(
+                {
+                    "mode": "fallback-invalid",
+                    "error_type": "TypeError",
+                    "error_message": "Stored profile row is not a JSON object.",
+                }
+            )
+            return None
+
+        try:
+            profile = FinancialProfile.model_validate(data)
+            _LAST_PROFILE_LOAD_META.update(
+                {
+                    "mode": "strict",
+                    "error_type": "",
+                    "error_message": "",
+                }
+            )
+            return profile
+        except (ValidationError, CoreValidationError, ValueError, TypeError):
+            pass
+
+        _LAST_PROFILE_LOAD_META.update(
+            {
+                "mode": "fallback",
+                "error_type": "",
+                "error_message": "",
+            }
+        )
+        return FinancialProfile.model_construct(**data)
+    except Exception as exc:
+        _LAST_PROFILE_LOAD_META.update(
+            {
+                "mode": "error",
+                "error_type": type(exc).__name__,
+                "error_message": str(exc),
+            }
+        )
+        return None
     finally:
         conn.close()
 
