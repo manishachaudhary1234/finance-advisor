@@ -1,10 +1,8 @@
 streamlit
 pydantic
-langchain-openai
+google-genai>=2.8,<3
+google-adk>=2.3.0
 python-dotenv
-langchain-core
+pyyaml
 langsmith[openai-agents]
 ddgs
-langgraph
-langgraph-checkpoint-sqlite
-langchain

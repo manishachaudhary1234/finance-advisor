@@ -2,12 +2,23 @@ import sqlite3
 from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
+import os
 
 from src.schemas.events import MemoryEvent
 
 DATA_DIR = Path(__file__).resolve().parents[2]/"data"
 DATA_DIR.mkdir(exist_ok=True)
-DB_PATH= DATA_DIR/"events.db"
+
+
+def _db_path() -> Path:
+    configured = os.getenv("EVENTS_DB_PATH")
+    if configured:
+        path = Path(configured)
+        if not path.is_absolute():
+            path = Path(__file__).resolve().parents[2] / path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        return path
+    return DATA_DIR / "events.db"
 
 def _init_db(conn: sqlite3.Connection) -> None:
     conn.execute(
@@ -27,7 +38,7 @@ def _init_db(conn: sqlite3.Connection) -> None:
 
 
 def __get_connection() -> None:
-    conn = sqlite3.connect(str(DB_PATH), check_same_thread=False)
+    conn = sqlite3.connect(str(_db_path()), check_same_thread=False)
     _init_db(conn)
     return conn
 

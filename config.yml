@@ -1,0 +1,19 @@
+context:
+  memory:
+    backend: in_memory
+    profiles_db_path: data/profiles.db
+    events_db_path: data/events.db
+  prompts:
+    backend: file
+    base_dir: src/context/prompts/templates
+
+observability:
+  logging:
+    name: finance-advisor
+    level: INFO
+    file_path: data/logs/app.log
+
+agents:
+  orchestrator:
+    enabled: true
+    strategy: default

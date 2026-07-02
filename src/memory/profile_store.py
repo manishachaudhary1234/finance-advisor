@@ -3,12 +3,23 @@ import json
 from pathlib import Path
 from datetime import datetime,timezone
 from typing import Optional
+import os
 from src.schemas.profile import FinancialProfile
 from src.schemas.updates import ProfileUpdate
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 DATA_DIR.mkdir(exist_ok=True)
-DB_PATH = DATA_DIR / "profiles.db"
+
+
+def _db_path() -> Path:
+    configured = os.getenv("PROFILES_DB_PATH")
+    if configured:
+        path = Path(configured)
+        if not path.is_absolute():
+            path = Path(__file__).resolve().parents[2] / path
+        path.parent.mkdir(parents=True, exist_ok=True)
+        return path
+    return DATA_DIR / "profiles.db"
 
 def __init_db(conn: sqlite3.Connection) -> None:
     conn.execute("""
@@ -20,7 +31,7 @@ def __init_db(conn: sqlite3.Connection) -> None:
     
 
 def __get_connection():
-    conn = sqlite3.connect(DB_PATH, check_same_thread=False)
+    conn = sqlite3.connect(_db_path(), check_same_thread=False)
     __init_db(conn)
     return conn
 
